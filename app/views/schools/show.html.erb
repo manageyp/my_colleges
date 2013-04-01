@@ -1,0 +1,66 @@
+<h1>学校详细信息</h1>
+<p>
+<%= link_to "返回", schools_path, class: 'btn' %>
+</p>
+<% if @school.present? %>
+  <table class="table table-hover">
+    <tbody>
+      <tr class="success">
+        <td>学校名称</td>
+        <td><%= @school.real_name %></td>
+      </tr>
+      <tr class="error">
+        <td>类型</td>
+        <td><%= @school.detail.college_type %></td>
+      </tr>
+      <tr class="error">
+        <td>是否211</td>
+        <td><%= @school.detail.is_211 %></td>
+      </tr>
+      <tr class="error">
+        <td>是否985</td>
+        <td><%= @school.detail.is_985 %></td>
+      </tr>
+      <tr class="warning">
+        <td>院校隶属</td>
+        <td><%= @school.detail.affiliate %></td>
+      </tr>
+      <tr class="warning">
+        <td>教育部直属院校</td>
+        <td><%= @school.detail.is_edu_affiliate %></td>
+      </tr>
+      <tr class="warning">
+        <td>设立研究生院</td>
+        <td><%= @school.detail.has_bachelor %></td>
+      </tr>
+      <tr class="warning">
+        <td>独立学院</td>
+        <td><%= @school.detail.is_independent %></td>
+      </tr>
+      <tr class="warning">
+        <td>民办院校</td>
+        <td><%= @school.detail.is_civilian_run %></td>
+      </tr>
+      <tr class="info">
+        <td>国家重点学科</td>
+        <td><%= @school.detail.key_disciplines %></td>
+      </tr>
+      <tr class="success">
+        <td>院士</td>
+        <td><%= @school.detail.master_num %></td>
+      </tr>
+      <tr class="error">
+        <td>博士点</td>
+        <td><%= @school.detail.phd_num %></td>
+      </tr>
+      <tr class="warning">
+        <td>硕士点</td>
+        <td><%= @school.detail.academician_num %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>学校介绍</h3>
+  <p><%= @school.full_content %></p>
+
+<% end %>
