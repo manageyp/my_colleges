@@ -36,6 +36,17 @@ class School < ActiveRecord::Base
 
   validates_presence_of :nick_name, :detail_type, :detail_id
 
+  ModelName = "学校"
+  ColumnNames ={
+    :country_id => "所在国家",
+    :province_id => "所在省份",
+    :city_id => "所在城市",
+    :nick_name => "别名",
+    :real_name => "真名",
+    :web_site => "网址",
+    :found_year => "创建年份"
+  }
+
   def build_content(content)
     SchoolIntroduction.build_intro(self.id, content)
   end

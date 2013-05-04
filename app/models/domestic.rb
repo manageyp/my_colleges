@@ -30,6 +30,22 @@ class Domestic < ActiveRecord::Base
 
   validates_presence_of :college_type
 
+  ModelName = "国内学校"
+  ColumnNames ={
+    :college_type => "院校类别",
+    :is_211 => "是否 211",
+    :is_985 => "是否 985",
+    :affiliate => "院校隶属于",
+    :is_edu_affiliate => "是否教育部直属院校",
+    :has_bachelor => "设立研究生院",
+    :is_independent => "独立学院",
+    :is_civilian_run => "民办院校",
+    :key_disciplines => "国家重点学科",
+    :master_num => "硕士点",
+    :phd_num => "博士点",
+    :academician_num => "院士人数"
+  }
+
   class << self
     
     def build!(params)
