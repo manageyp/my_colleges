@@ -2,6 +2,7 @@
 
 <%= form_tag('/schools', :method => :get) do %>
   <p><%= province_filters %> </p>
+  <p><%= professional_type_filters %> </p>
   <%= submit_tag '筛选', class: :btn %>
 <% end %>
 

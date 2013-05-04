@@ -4,7 +4,9 @@ class SchoolsController < ApplicationController
   before_filter :paginate_page, only: [:index, :search]
 
   def index
-    options = { province: params[:province] }
+    options = { province: params[:province],
+                professional_type: params[:professional_type]
+              }
     @schools = School.paginate_schools(options, @page)
   end
 

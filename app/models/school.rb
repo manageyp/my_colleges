@@ -21,6 +21,8 @@
 
 class School < ActiveRecord::Base
 
+  include Extras::SchoolTypes
+
   belongs_to :detail, :polymorphic =>true
   belongs_to :country
   belongs_to :province
@@ -68,22 +70,33 @@ class School < ActiveRecord::Base
   class << self
 
     def paginate_schools(options, page = 1, per_page = 10)
-      condition_sts = []
-      if options[:province].present? &&
-         options[:province] != 'all'
-        condition_sts << "province_id = #{options[:province]}"
+      conditions = []
+      joins = "join domestics on schools.detail_id = domestics.id"
+
+      if options[:province].present?
+        conditions << "schools.province_id = #{options[:province]}"
       end
-      paginate(conditions: condition_sts,
+
+      if options[:professional_type].present?
+        professional_type = professional_type_name(options[:professional_type])
+        if professional_type
+          conditions << "domestics.college_type = '#{professional_type}'"
+        end
+      end
+
+      paginate(select: "schools.id,schools.province_id,schools.real_name",
+               conditions: conditions.join(" AND "),
+               joins: joins,
                page: page,
                per_page: 10,
-               order: "province_id")
+               order: "province_id").all
     end
 
     def search_schools(options, page = 1, per_page = 10)
       paginate(conditions: ["real_name like ?", "%#{options[:keyword]}%"],
                page: page,
                per_page: 10,
-               order: "province_id")
+               order: "province_id").all
     end
     
     def build_domestic(params)

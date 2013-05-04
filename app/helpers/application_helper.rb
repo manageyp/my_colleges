@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 module ApplicationHelper
+  include Extras::SchoolTypes
 
   def chinese_pagination(collection)
     options = { previous_label: "上一页",
