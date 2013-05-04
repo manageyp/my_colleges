@@ -66,6 +66,25 @@ class School < ActiveRecord::Base
   end
 
   class << self
+
+    def paginate_schools(options, page = 1, per_page = 10)
+      condition_sts = []
+      if options[:province].present? &&
+         options[:province] != 'all'
+        condition_sts << "province_id = #{options[:province]}"
+      end
+      paginate(conditions: condition_sts,
+               page: page,
+               per_page: 10,
+               order: "province_id")
+    end
+
+    def search_schools(options, page = 1, per_page = 10)
+      paginate(conditions: ["real_name like ?", "%#{options[:keyword]}%"],
+               page: page,
+               per_page: 10,
+               order: "province_id")
+    end
     
     def build_domestic(params)
       province = Province.province_by_name(params[:province_name])

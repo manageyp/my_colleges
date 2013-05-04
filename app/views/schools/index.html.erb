@@ -1,5 +1,7 @@
 <h1>学校列表</h1>
 
+<%= render :partial => "search_filters" %>
+
 <% if has_size?(@schools) %>
 
   <%= chinese_pagination @schools %>
@@ -8,7 +10,6 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>国家</th>
         <th>省份</th>
         <th>学校名称</th>
         <th></th>
@@ -18,7 +19,6 @@
       <% @schools.each do |school| %>
         <tr>
           <td><%= school.id %></td>
-          <td><%= school.country_name %></td>
           <td><%= school.province_name %></td>
           <td><%= school.real_name %></td>
           <td><%= link_to "查看", school_path(school.id), class: 'btn' %></td>
