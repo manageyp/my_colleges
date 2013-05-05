@@ -18,7 +18,11 @@ class City < ActiveRecord::Base
   validates_presence_of :province_id
 
   class << self
-    
+
+    def get_by_name(title)
+      self.where("real_name like ?", "#{title}%").first
+    end
+
     def create_city(province_id, nick_name, real_name = nil)
       real_name ||= nick_name
       p = self.new(:province_id => province_id,

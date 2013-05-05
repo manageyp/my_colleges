@@ -15,6 +15,9 @@
 #  web_site    :string(255)
 #  found_year  :string(255)
 #  ifeng_code  :string(255)
+#  address     :string(255)
+#  telephone   :string(255)
+#  sina_code   :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -29,10 +32,13 @@ class School < ActiveRecord::Base
   belongs_to :city
 
   has_one :school_introduction
+  has_one :school_avatar, class_name: "SchoolPhoto", conditions: ["is_avatar = ?", true]
+  has_many :school_photos
 
   attr_accessible :country_id, :province_id, :city_id,
                   :nick_name, :real_name, :web_site,
-                  :found_year, :ifeng_code
+                  :found_year, :ifeng_code, :address,
+                  :telephone, :sina_code
 
   validates_presence_of :nick_name, :detail_type, :detail_id
 
@@ -44,7 +50,9 @@ class School < ActiveRecord::Base
     :nick_name => "别名",
     :real_name => "真名",
     :web_site => "网址",
-    :found_year => "创建年份"
+    :found_year => "创建年份",
+    :address => "地址",
+    :telephone => "联系电话"
   }
 
   def build_content(content)
@@ -109,9 +117,29 @@ class School < ActiveRecord::Base
                per_page: 10,
                order: "province_id").all
     end
+
+    def build_sina_domestic(params)
+      domestic = Domestic.build!(params)
+      if domestic
+        school = self.new(:country_id => params[:country_id],
+                          :province_id => params[:province_id],
+                          :nick_name => params[:nick_name],
+                          :real_name => params[:nick_name],
+                          :web_site => params[:web_site],
+                          :address => params[:address],
+                          :telephone => params[:telephone],
+                          :sina_code => params[:sina_code])
+        school.detail = domestic
+
+        if school.valid? && school.save!
+          #SchoolIntroduction.build_intro(school.id, params[:content])
+          school
+        end
+      end
+    end
     
-    def build_domestic(params)
-      province = Province.province_by_name(params[:province_name])
+    def build_ifeng_domestic(params)
+      province = Province.get_by_name(params[:province_name])
       unless province
         Rails.logger.info "province not found name (#{params[:province_name]})"
         return

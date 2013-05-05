@@ -20,7 +20,7 @@ class Province < ActiveRecord::Base
 
   class << self
 
-    def province_by_name(title)
+    def get_by_name(title)
       title = "内蒙古" if title == '内蒙'
       self.where("nick_name = ?", title).first
     end

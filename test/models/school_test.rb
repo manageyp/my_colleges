@@ -9,8 +9,8 @@ class SchoolTest < ActiveSupport::TestCase
                :nick_name => "南通大学", :web_site => "http://www.ntu.edu.cn",
                :ifeng_code => 1322 }
     province = Province.new(:id => 1, :country_id => 1)
-    Province.stubs(:province_by_name).returns(province)
-    school = School.build_domestic(params)
+    Province.stubs(:get_by_name).returns(province)
+    school = School.build_ifeng_domestic(params)
     puts school.inspect
     assert_not_nil school
   end

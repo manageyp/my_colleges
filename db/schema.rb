@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213160602) do
+ActiveRecord::Schema.define(:version => 20130505031830) do
 
   create_table "cities", :force => true do |t|
     t.integer  "province_id", :null => false
@@ -82,6 +82,17 @@ ActiveRecord::Schema.define(:version => 20130213160602) do
 
   add_index "school_introductions", ["school_id"], :name => "index_school_introductions_on_school_id", :unique => true
 
+  create_table "school_photos", :force => true do |t|
+    t.integer  "school_id"
+    t.string   "photo_url"
+    t.boolean  "is_avatar",  :default => false
+    t.string   "status"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "school_photos", ["school_id"], :name => "index_school_photos_on_school_id"
+
   create_table "schools", :force => true do |t|
     t.string   "detail_type", :null => false
     t.integer  "detail_id",   :null => false
@@ -95,6 +106,9 @@ ActiveRecord::Schema.define(:version => 20130213160602) do
     t.string   "ifeng_code"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "address"
+    t.string   "telephone"
+    t.string   "sina_code"
   end
 
   add_index "schools", ["city_id"], :name => "index_schools_on_city_id"

@@ -28,7 +28,7 @@ class Domestic < ActiveRecord::Base
                   :is_civilian_run, :key_disciplines, :master_num,
                   :phd_num, :academician_num
 
-  validates_presence_of :college_type
+  #validates_presence_of :college_type
 
   ModelName = "国内学校"
   ColumnNames ={
