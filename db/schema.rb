@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505031830) do
+ActiveRecord::Schema.define(:version => 20130506061757) do
 
   create_table "cities", :force => true do |t|
     t.integer  "province_id", :null => false
@@ -109,6 +109,9 @@ ActiveRecord::Schema.define(:version => 20130505031830) do
     t.string   "address"
     t.string   "telephone"
     t.string   "sina_code"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "zipcode"
   end
 
   add_index "schools", ["city_id"], :name => "index_schools_on_city_id"

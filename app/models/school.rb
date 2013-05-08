@@ -18,6 +18,9 @@
 #  address     :string(255)
 #  telephone   :string(255)
 #  sina_code   :string(255)
+#  latitude     :string(255)
+#  longitude   :string(255)
+#  zipcode   :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -38,7 +41,8 @@ class School < ActiveRecord::Base
   attr_accessible :country_id, :province_id, :city_id,
                   :nick_name, :real_name, :web_site,
                   :found_year, :ifeng_code, :address,
-                  :telephone, :sina_code
+                  :telephone, :sina_code, :latitude,
+                  :longitude, :zipcode
 
   validates_presence_of :nick_name, :detail_type, :detail_id
 
@@ -52,7 +56,10 @@ class School < ActiveRecord::Base
     :web_site => "网址",
     :found_year => "创建年份",
     :address => "地址",
-    :telephone => "联系电话"
+    :telephone => "联系电话",
+    :latitude => "纬度",
+    :longitude => "经度",
+    :zipcode => "邮政编码"
   }
 
   def build_content(content)
@@ -86,6 +93,10 @@ class School < ActiveRecord::Base
     end
   end
 
+  def refresh_address(params)
+    self.update_attributes(params)
+  end
+
   class << self
 
     def paginate_schools(options, page = 1, per_page = 10)
@@ -108,14 +119,14 @@ class School < ActiveRecord::Base
                joins: joins,
                page: page,
                per_page: 10,
-               order: "province_id").all
+               order: "id").all
     end
 
     def search_schools(options, page = 1, per_page = 10)
       paginate(conditions: ["real_name like ?", "%#{options[:keyword]}%"],
                page: page,
                per_page: 10,
-               order: "province_id").all
+               order: "id").all
     end
 
     def build_sina_domestic(params)

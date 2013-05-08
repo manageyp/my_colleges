@@ -21,7 +21,7 @@
           <td><%= school.id %></td>
           <td><%= school.province_name %></td>
           <td><%= school.real_name %></td>
-          <td><%= link_to "查看", school_path(school.id), class: 'btn' %></td>
+          <td><%= link_to "查看", school_path(school.id), class: 'btn', target: "_blank" %></td>
         </tr>
       <% end %>
     </tbody>

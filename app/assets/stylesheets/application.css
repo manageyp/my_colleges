@@ -16,7 +16,8 @@
 #content {
     background-color: #FFFFFF;
     border-radius: 4px 4px 4px 4px;
-    margin: 15px 0;
-    padding: 39px 19px 14px;
+    margin-left:auto;
+    margin-right:auto;
     position: relative;
+    width: 90%;
 }
