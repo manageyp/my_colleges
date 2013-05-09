@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506061757) do
+ActiveRecord::Schema.define(:version => 20130508083751) do
 
   create_table "cities", :force => true do |t|
     t.integer  "province_id", :null => false
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20130506061757) do
 
   add_index "countries", ["nick_name"], :name => "index_countries_on_nick_name"
   add_index "countries", ["real_name"], :name => "index_countries_on_real_name"
+
+  create_table "devices", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "mac",        :null => false
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "devices", ["mac"], :name => "index_devices_on_mac"
+  add_index "devices", ["user_id"], :name => "index_devices_on_user_id"
 
   create_table "domestics", :force => true do |t|
     t.string   "college_type"
@@ -71,6 +82,28 @@ ActiveRecord::Schema.define(:version => 20130506061757) do
   add_index "provinces", ["country_id"], :name => "index_provinces_on_country_id"
   add_index "provinces", ["nick_name"], :name => "index_provinces_on_nick_name"
   add_index "provinces", ["real_name"], :name => "index_provinces_on_real_name"
+
+  create_table "school_evaluations", :force => true do |t|
+    t.integer  "school_id",                   :null => false
+    t.integer  "follow_count", :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "school_evaluations", ["school_id"], :name => "index_school_evaluations_on_school_id"
+
+  create_table "school_follows", :force => true do |t|
+    t.integer  "school_id",  :null => false
+    t.integer  "device_id",  :null => false
+    t.date     "the_date"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "school_follows", ["device_id"], :name => "index_school_follows_on_device_id"
+  add_index "school_follows", ["school_id"], :name => "index_school_follows_on_school_id"
+  add_index "school_follows", ["the_date"], :name => "index_school_follows_on_the_date"
 
   create_table "school_introductions", :force => true do |t|
     t.integer  "school_id",     :null => false
@@ -120,5 +153,22 @@ ActiveRecord::Schema.define(:version => 20130506061757) do
   add_index "schools", ["nick_name"], :name => "index_schools_on_nick_name"
   add_index "schools", ["province_id"], :name => "index_schools_on_province_id"
   add_index "schools", ["real_name"], :name => "index_schools_on_real_name"
+
+  create_table "users", :force => true do |t|
+    t.string   "user_name",        :null => false
+    t.string   "email",            :null => false
+    t.string   "email_status"
+    t.string   "cellphone"
+    t.string   "cellphone_status"
+    t.date     "register_date"
+    t.string   "status"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "users", ["cellphone"], :name => "index_users_on_cellphone"
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["register_date"], :name => "index_users_on_register_date"
+  add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 
 end
