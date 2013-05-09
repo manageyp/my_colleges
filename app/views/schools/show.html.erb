@@ -1,7 +1,9 @@
 <h2>学校详细信息</h2>
 <p>
 <%= link_to "返回", schools_path, class: 'btn' %>
+<%= link_to "关注学校", school_follows_path, class: 'btn btn-primary' %>
 </p>
+
 <% if @school.present? %>
 <fieldset>
     <legend>学校基本信息</legend>

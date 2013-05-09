@@ -13,5 +13,9 @@
 #
 
 class Device < ActiveRecord::Base
+  belongs_to :user
+  has_many :school_follows
+
   attr_accessible :mac, :status, :user_id
+
 end

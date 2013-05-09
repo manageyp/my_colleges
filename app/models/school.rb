@@ -37,6 +37,7 @@ class School < ActiveRecord::Base
   has_one :school_introduction
   has_one :school_avatar, class_name: "SchoolPhoto", conditions: ["is_avatar = ?", true]
   has_many :school_photos
+  has_many :school_follows
 
   attr_accessible :country_id, :province_id, :city_id,
                   :nick_name, :real_name, :web_site,

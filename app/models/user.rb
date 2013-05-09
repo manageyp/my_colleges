@@ -17,6 +17,8 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :devices
+
   attr_accessible :cellphone, :cellphone_status, :email, :email_status,
                   :register_date, :status, :user_name
 

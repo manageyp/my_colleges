@@ -1,9 +1,12 @@
 MyColleges::Application.routes.draw do
+
   resources :schools do
     collection do
       get 'search'
     end
   end
+
+  resources :school_follows
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
