@@ -115,16 +115,13 @@ class School < ActiveRecord::Base
         end
       end
 
+      if options[:keyword].present?
+        conditions << "schools.real_name like '%#{options[:keyword]}%'"
+      end
+
       paginate(select: "schools.id,schools.province_id,schools.real_name",
                conditions: conditions.join(" AND "),
                joins: joins,
-               page: page,
-               per_page: 10,
-               order: "id").all
-    end
-
-    def search_schools(options, page = 1, per_page = 10)
-      paginate(conditions: ["real_name like ?", "%#{options[:keyword]}%"],
                page: page,
                per_page: 10,
                order: "id").all
