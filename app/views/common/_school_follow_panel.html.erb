@@ -1,0 +1,31 @@
+<div id="follow_button" >
+  <%= render :partial => "/common/school_follow_button", :locals => { :school => school, :device => @device } %>
+</div>
+
+<%= form_tag "/school_follows", {id: "schoolFollowForm"} do %>
+  <% if school.present? %>
+    <input type="hidden" name="school_id" value="<%= school.id %>" />
+  <% end %>
+  <input type="hidden" name="follow_type" />
+<% end %>
+
+<script type="text/javascript">
+  function followAction(follow_type) {
+    $("input[name='follow_type']").val(follow_type);
+
+    $.ajax({
+      url:"/school_follows",
+      dataType:'text',
+      type:'POST',
+      data:$("#schoolFollowForm").serialize(),
+      success: function(text){
+        $("#follow_button").html(text);
+      },
+      error:function(response){
+        var error_message = (response.status == 403) ? response.responseText : "程序处理异常，请稍后重试";
+        alert(error_message);
+      }
+    });
+    return false;
+  }
+</script>

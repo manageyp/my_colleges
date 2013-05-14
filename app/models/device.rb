@@ -18,4 +18,12 @@ class Device < ActiveRecord::Base
 
   attr_accessible :mac, :status, :user_id
 
+  class << self
+
+    def build_device(user)
+      create(user_id: user.id, mac: user.user_name)
+    end
+
+  end
+
 end

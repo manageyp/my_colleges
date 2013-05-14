@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20130508083751) do
 
   create_table "users", :force => true do |t|
     t.string   "user_name",        :null => false
-    t.string   "email",            :null => false
+    t.string   "email"
     t.string   "email_status"
     t.string   "cellphone"
     t.string   "cellphone_status"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(:version => 20130508083751) do
   end
 
   add_index "users", ["cellphone"], :name => "index_users_on_cellphone"
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["register_date"], :name => "index_users_on_register_date"
   add_index "users", ["user_name"], :name => "index_users_on_user_name", :unique => true
 

@@ -1,12 +1,12 @@
 <h2>学校详细信息</h2>
 <p>
 <%= link_to "返回", schools_path, class: 'btn' %>
-<%= link_to "关注学校", school_follows_path, class: 'btn btn-primary' %>
 </p>
 
 <% if @school.present? %>
 <fieldset>
     <legend>学校基本信息</legend>
+    <%= render :partial => "/common/school_follow_panel", :locals => { :school => @school } %>
     <table class="table table-hover">
       <tbody>
         <% if(avatar = @school.school_avatar) %>
@@ -18,6 +18,10 @@
         <tr class="success">
           <td>学校名称</td>
           <td><%= @school.real_name %></td>
+        </tr>
+        <tr class="success">
+          <td>学校网址</td>
+          <td><%= link_to @school.web_site, @school.web_site %></td>
         </tr>
         <tr class="error">
           <td>类型</td>

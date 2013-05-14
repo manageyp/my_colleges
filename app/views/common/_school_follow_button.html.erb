@@ -1,0 +1,5 @@
+<% if SchoolFollow.followed?(school, device) %>
+  <a href='javascript:void(0);' onclick="followAction('unfollow');" class='btn btn-danger'>取消关注</a>
+<% else %>
+  <a href='javascript:void(0);' onclick="followAction('follow');" class='btn btn-warning'>关注学校</a>
+<% end %>
