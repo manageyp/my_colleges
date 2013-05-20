@@ -22,8 +22,7 @@ class SchoolIntroduction < ActiveRecord::Base
   class << self
     
     def build_intro(school_id, content)
-      si = self.new(:school_id => school_id,
-                    :full_content => content)
+      si = self.new(school_id: school_id, full_content: content)
       if si.valid?
         si.save!
       end

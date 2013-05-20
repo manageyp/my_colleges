@@ -29,7 +29,7 @@ class School < ActiveRecord::Base
 
   include Extras::SchoolTypes
 
-  belongs_to :detail, :polymorphic =>true
+  belongs_to :detail, polymorphic: true
   belongs_to :country
   belongs_to :province
   belongs_to :city
@@ -49,18 +49,18 @@ class School < ActiveRecord::Base
 
   ModelName = "学校"
   ColumnNames ={
-    :country_id => "所在国家",
-    :province_id => "所在省份",
-    :city_id => "所在城市",
-    :nick_name => "别名",
-    :real_name => "真名",
-    :web_site => "网址",
-    :found_year => "创建年份",
-    :address => "地址",
-    :telephone => "联系电话",
-    :latitude => "纬度",
-    :longitude => "经度",
-    :zipcode => "邮政编码"
+    country_id: "所在国家",
+    province_id: "所在省份",
+    city_id: "所在城市",
+    nick_name: "别名",
+    real_name: "真名",
+    web_site: "网址",
+    found_year: "创建年份",
+    address: "地址",
+    telephone: "联系电话",
+    latitude: "纬度",
+    longitude: "经度",
+    zipcode: "邮政编码"
   }
 
   def build_content(content)
@@ -130,14 +130,14 @@ class School < ActiveRecord::Base
     def build_sina_domestic(params)
       domestic = Domestic.build!(params)
       if domestic
-        school = self.new(:country_id => params[:country_id],
-                          :province_id => params[:province_id],
-                          :nick_name => params[:nick_name],
-                          :real_name => params[:nick_name],
-                          :web_site => params[:web_site],
-                          :address => params[:address],
-                          :telephone => params[:telephone],
-                          :sina_code => params[:sina_code])
+        school = self.new(country_id: params[:country_id],
+                          province_id: params[:province_id],
+                          nick_name: params[:nick_name],
+                          real_name: params[:nick_name],
+                          web_site: params[:web_site],
+                          address: params[:address],
+                          telephone: params[:telephone],
+                          sina_code: params[:sina_code])
         school.detail = domestic
 
         if school.valid? && school.save!
@@ -156,12 +156,12 @@ class School < ActiveRecord::Base
 
       domestic = Domestic.build!(params)
       if domestic
-        school = self.new(:country_id => province.country_id,
-                          :province_id => province.id,
-                          :nick_name => params[:nick_name],
-                          :real_name => params[:nick_name],
-                          :web_site => params[:web_site],
-                          :ifeng_code => params[:ifeng_code])
+        school = self.new(country_id: province.country_id,
+                          province_id: province.id,
+                          nick_name: params[:nick_name],
+                          real_name: params[:nick_name],
+                          web_site: params[:web_site],
+                          ifeng_code: params[:ifeng_code])
         school.detail = domestic
 
         if school.valid? && school.save!

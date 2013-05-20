@@ -26,9 +26,7 @@ class SchoolFollow < ActiveRecord::Base
 
     def build(school, device)
       unless followed?(school, device)
-        create(school_id: school.id,
-               device_id: device.id,
-               the_date: Date.today)
+        create(school_id: school.id, device_id: device.id, the_date: Date.today)
       end
     end
 

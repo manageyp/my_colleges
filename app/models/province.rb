@@ -27,9 +27,9 @@ class Province < ActiveRecord::Base
     
     def create_province(country_id, nick_name, real_name = nil)
       real_name ||= nick_name
-      p = self.new(:country_id => country_id,
-                   :nick_name => nick_name,
-                   :real_name => real_name)
+      p = self.new(country_id: country_id,
+                   nick_name: nick_name,
+                   real_name: real_name)
       if p.valid?
         p.save! and p
       end
