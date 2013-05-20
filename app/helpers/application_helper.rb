@@ -4,8 +4,7 @@ module ApplicationHelper
   include Extras::SchoolTypes
 
   def chinese_pagination(collection)
-    options = { previous_label: "上一页",
-                next_label: "下一页" }
+    options = { previous_label: "上一页", next_label: "下一页" }
     will_paginate(collection, options)
   end
 

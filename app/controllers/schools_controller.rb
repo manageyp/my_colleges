@@ -6,8 +6,7 @@ class SchoolsController < ApplicationController
   def index
     options = { province: params[:province],
                 professional_type: params[:professional_type],
-                keyword: params[:keyword]
-              }
+                keyword: params[:keyword] }
     @schools = School.paginate_schools(options, @page)
   end
 

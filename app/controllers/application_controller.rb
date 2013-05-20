@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def init_device_user
     @device = User.build_device_user
     if @device
-      @user = @device.user if @device
+      @user = @device.user
       session[:device_id] = @device.id
     end
   end
