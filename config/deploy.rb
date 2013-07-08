@@ -19,7 +19,6 @@ role :db,  application, :primary => true # This is where Rails migrations will r
 
 set :user, "user_name"        #proc { Capistrano::CLI.password_prompt("Server User: ") }
 set :password, 'password'     #proc { Capistrano::CLI.password_prompt("Server Password : ") }
-set :port, 5000 
 set :use_sudo, false
 
 # unicorn.rb 路径
