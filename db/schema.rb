@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508083751) do
+ActiveRecord::Schema.define(:version => 20131113025056) do
 
   create_table "cities", :force => true do |t|
     t.integer  "province_id", :null => false
@@ -70,6 +70,19 @@ ActiveRecord::Schema.define(:version => 20130508083751) do
   add_index "domestics", ["is_985"], :name => "index_domestics_on_is_985"
   add_index "domestics", ["is_civilian_run"], :name => "index_domestics_on_is_civilian_run"
   add_index "domestics", ["is_edu_affiliate"], :name => "index_domestics_on_is_edu_affiliate"
+
+  create_table "majors", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.string   "code"
+    t.string   "college_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "majors", ["college_type"], :name => "index_majors_on_college_type"
+  add_index "majors", ["name"], :name => "index_majors_on_name"
+  add_index "majors", ["parent_id"], :name => "index_majors_on_parent_id"
 
   create_table "provinces", :force => true do |t|
     t.integer  "country_id", :null => false
