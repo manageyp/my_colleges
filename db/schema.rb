@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20131113025056) do
     t.integer  "parent_id"
     t.string   "code"
     t.string   "college_type"
+    t.string   "eol_url"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

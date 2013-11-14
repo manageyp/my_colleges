@@ -5,6 +5,7 @@ class CreateMajors < ActiveRecord::Migration
       t.integer :parent_id
       t.string :code
       t.string :college_type
+      t.string :eol_url
 
       t.timestamps
     end

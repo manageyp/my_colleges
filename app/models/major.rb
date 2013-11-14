@@ -9,10 +9,11 @@
 #  parent_id  :integer
 #  code       :string(255)
 #  college_type  :string(255)
+#  eol_url    :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Major < ActiveRecord::Base
-  attr_accessible :code, :college_type, :name, :parent_id
+  attr_accessible :code, :college_type, :name, :parent_id, :eol_url
 end
