@@ -37,6 +37,7 @@ class Major < ActiveRecord::Base
 
     def paginate_majors(options, page = 1, per_page = 10)
       conditions = []
+      conditions << "parent_id != ''"
       conditions << "parent_id = #{options[:parent_id]}" if options[:parent_id].present?
       conditions << "college_type = '#{options[:college_type]}'" if options[:college_type].present?
 
