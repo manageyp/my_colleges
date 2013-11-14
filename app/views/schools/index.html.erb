@@ -1,5 +1,3 @@
-<h1>学校列表</h1>
-
 <%= render :partial => "search_filters" %>
 
 <% if has_size?(@schools) %>
@@ -10,7 +8,8 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>省份</th>
+        <th>所在省份</th>
+        <th>学校图片</th>
         <th>学校名称</th>
         <th></th>
       </tr>
@@ -20,6 +19,13 @@
         <tr>
           <td><%= school.id %></td>
           <td><%= school.province_name %></td>
+          <td>
+            <% if(avatar = school.school_avatar) %>
+              <%= image_tag avatar.photo_url, style: "width:60px;height:60px;" %>
+            <% else %>
+              无图
+            <% end %>
+          </td>
           <td><%= school.real_name %></td>
           <td><%= link_to "查看", school_path(school.id), class: 'btn', target: "_blank" %></td>
         </tr>

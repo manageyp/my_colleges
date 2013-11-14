@@ -7,9 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="content">
+  <div class='navbar navbar-inverse navbar-fixed-top'>
+    <div class="navbar-inner">
+      <div class='container'>
+        <a class='brand' href='/'>我的大学</a>
+        <div class='nav-collapse'>
+          <%= render '/common/nav' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content" style='padding-top:50px;'>
     <%= yield %>
   </div>
-  <%= render :partial => "/common/system_notice" %>
 </body>
 </html>

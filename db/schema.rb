@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113025056) do
+ActiveRecord::Schema.define(:version => 20131114030230) do
 
   create_table "cities", :force => true do |t|
     t.integer  "province_id", :null => false
@@ -70,6 +70,13 @@ ActiveRecord::Schema.define(:version => 20131113025056) do
   add_index "domestics", ["is_985"], :name => "index_domestics_on_is_985"
   add_index "domestics", ["is_civilian_run"], :name => "index_domestics_on_is_civilian_run"
   add_index "domestics", ["is_edu_affiliate"], :name => "index_domestics_on_is_edu_affiliate"
+
+  create_table "major_introductions", :force => true do |t|
+    t.integer  "major_id"
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "majors", :force => true do |t|
     t.string   "name"
