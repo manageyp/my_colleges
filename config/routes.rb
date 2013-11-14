@@ -1,7 +1,10 @@
 MyColleges::Application.routes.draw do
 
   resources :schools
+  resources :majors
   resources :school_follows
+
+  root :to => 'schools#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,7 +55,6 @@ MyColleges::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'schools#index'
 
   # See how all your routes lay out with "rake routes"
 
