@@ -29,14 +29,14 @@ group :assets do
   gem 'bootstrap_helper', "1.4.1"
 end
 
-group :test, :development do
-  gem "factory_girl_rails"
-  gem 'minitest'
-  gem 'turn', require: false
-  gem 'minitest-rails'
-  gem 'mocha', require: false
-  gem 'annotate', ">=2.5.0"
-end
+# group :test, :development do
+#   gem "factory_girl_rails"
+#   gem 'minitest'
+#   gem 'turn', require: false
+#   gem 'minitest-rails'
+#   gem 'mocha', require: false
+#   gem 'annotate', ">=2.5.0"
+# end
 
 gem 'jquery-rails'
 
