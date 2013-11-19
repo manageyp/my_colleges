@@ -3,6 +3,7 @@ MyColleges::Application.routes.draw do
   resources :schools
   resources :majors
   resources :school_follows
+  resources :score_lines
 
   root :to => 'schools#index'
 

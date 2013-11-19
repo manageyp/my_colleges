@@ -1,0 +1,34 @@
+<%= render :partial => "search_filters" %>
+
+<% if has_size?(@score_lines) %>
+
+  <%= chinese_pagination @score_lines %>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>批次名称</th>
+        <th>所在省份</th>
+        <th>所属年份</th>
+        <th>专业分类</th>
+        <th>分数线</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @score_lines.each do |score_line| %>
+        <tr>
+          <td><%= score_line.name %></td>
+          <td><%= score_line.province.real_name if score_line.province%></td>
+          <td><%= score_line.syear %></td>
+          <td><%= score_line.smajor_name %></td>
+          <td><%= score_line.score %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= chinese_pagination @score_lines %>
+<% end %>

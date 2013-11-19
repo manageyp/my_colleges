@@ -1,0 +1,6 @@
+<%= form_tag('/score_lines', :method => :get) do %>
+  <p><%= province_filters %></p>
+  <p><%= syear_filters %></p>
+  <p><%= smajor_filters %></p>
+  <%= submit_tag '搜索', class: :btn %>
+<% end %>
