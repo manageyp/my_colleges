@@ -19,6 +19,7 @@
     <tbody>
       <% @score_lines.each do |score_line| %>
         <tr>
+          <td><%= score_line.id %></td>
           <td><%= score_line.name %></td>
           <td><%= score_line.province.real_name if score_line.province%></td>
           <td><%= score_line.syear %></td>
