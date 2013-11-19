@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114030230) do
+ActiveRecord::Schema.define(:version => 20131118055548) do
 
   create_table "cities", :force => true do |t|
     t.integer  "province_id", :null => false
@@ -174,6 +174,21 @@ ActiveRecord::Schema.define(:version => 20131114030230) do
   add_index "schools", ["nick_name"], :name => "index_schools_on_nick_name"
   add_index "schools", ["province_id"], :name => "index_schools_on_province_id"
   add_index "schools", ["real_name"], :name => "index_schools_on_real_name"
+
+  create_table "score_lines", :force => true do |t|
+    t.string   "name"
+    t.integer  "province_id"
+    t.integer  "syear"
+    t.integer  "smajor"
+    t.integer  "batch"
+    t.integer  "score"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "score_lines", ["name"], :name => "index_score_lines_on_name"
+  add_index "score_lines", ["province_id"], :name => "index_score_lines_on_province_id"
+  add_index "score_lines", ["syear"], :name => "index_score_lines_on_syear"
 
   create_table "users", :force => true do |t|
     t.string   "user_name",        :null => false
