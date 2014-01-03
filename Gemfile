@@ -6,6 +6,7 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'sqlite3'
 
 gem 'rest-client', '1.6.7'
 gem 'nokogiri'
@@ -22,7 +23,7 @@ group :assets do
   gem 'therubyracer', require: 'v8'
 
   gem 'uglifier', '>= 1.0.3'
-  
+
   # Bootstrap
   gem 'anjlab-bootstrap-rails', '>= 2.2', require: 'bootstrap-rails'
   gem 'bootstrap-will_paginate', '0.0.3'
