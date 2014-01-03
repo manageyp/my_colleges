@@ -9,6 +9,8 @@ rails_env = ENV["RAILS_ENV"] || "development"
 
 preload_app true
 working_directory Rails.root
+# socket for communication with the nginx
+listen '/tmp/unicorn.college.sock', :backlog => 64
 pid "#{Rails.root}/tmp/pids/unicorn.pid"
 stderr_path "#{Rails.root}/log/unicorn.log"
 stdout_path "#{Rails.root}/log/unicorn.log"
@@ -19,7 +21,7 @@ if rails_env == "production"
   worker_processes 4
 else
   worker_processes 1
-end  
+end
 timeout 120
 
 if GC.respond_to?(:copy_on_write_friendly=)
