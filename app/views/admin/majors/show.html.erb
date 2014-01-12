@@ -1,0 +1,40 @@
+<h2>专业详细信息</h2>
+<p>
+<%= link_to "返回", admin_majors_path, class: 'btn' %>
+</p>
+
+<% if @major.present? %>
+<fieldset>
+  <legend>专业基本信息</legend>
+  <table class="table table-hover">
+    <tbody>
+      <tr class="success">
+        <td>专业层次</td>
+        <td><%= @major.college_type %></td>
+      </tr>
+      <tr class="success">
+        <td>专业分类</td>
+        <td><%= @major.parent_name %></td>
+      </tr>
+      <tr class="error">
+        <td>专业名称</td>
+        <td><%= @major.name %></td>
+      </tr>
+      <tr class="error">
+        <td>专业代号</td>
+        <td><%= @major.code %></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+  <h3>专业介绍</h3>
+  <p>
+    <% if @major.major_introduction %>
+      <%= @major.major_introduction.content %>
+    <% else %>
+      无
+    <% end %>
+  </p>
+
+<% end %>

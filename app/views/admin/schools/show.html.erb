@@ -1,0 +1,111 @@
+<h2>学校详细信息</h2>
+<p>
+<%= link_to "返回", admin_schools_path, class: 'btn' %>
+</p>
+
+<% if @school.present? %>
+<fieldset>
+    <legend>学校基本信息</legend>
+    <%= render :partial => "/admin/common/school_follow_panel", :locals => { :school => @school } %>
+    <table class="table table-hover">
+      <tbody>
+        <% if(avatar = @school.school_avatar) %>
+          <tr class="success">
+            <td>学校图片</td>
+            <td><%= image_tag avatar.photo_url %></td>
+          </tr>
+        <% end %>
+        <tr class="success">
+          <td>学校名称</td>
+          <td><%= @school.real_name %></td>
+        </tr>
+        <tr class="success">
+          <td>学校网址</td>
+          <td><%= link_to @school.web_site, @school.web_site %></td>
+        </tr>
+        <tr class="error">
+          <td>类型</td>
+          <td><%= @school.detail.college_type %></td>
+        </tr>
+        <tr class="error">
+          <td>是否211</td>
+          <td><%= @school.detail.is_211 %></td>
+        </tr>
+        <tr class="error">
+          <td>是否985</td>
+          <td><%= @school.detail.is_985 %></td>
+        </tr>
+        <tr class="warning">
+          <td>院校隶属</td>
+          <td><%= @school.detail.affiliate %></td>
+        </tr>
+        <tr class="warning">
+          <td>教育部直属院校</td>
+          <td><%= @school.detail.is_edu_affiliate %></td>
+        </tr>
+        <tr class="warning">
+          <td>设立研究生院</td>
+          <td><%= @school.detail.has_bachelor %></td>
+        </tr>
+        <tr class="warning">
+          <td>独立学院</td>
+          <td><%= @school.detail.is_independent %></td>
+        </tr>
+        <tr class="warning">
+          <td>民办院校</td>
+          <td><%= @school.detail.is_civilian_run %></td>
+        </tr>
+        <tr class="info">
+          <td>国家重点学科</td>
+          <td><%= @school.detail.key_disciplines %></td>
+        </tr>
+        <tr class="success">
+          <td>院士</td>
+          <td><%= @school.detail.master_num %></td>
+        </tr>
+        <tr class="error">
+          <td>博士点</td>
+          <td><%= @school.detail.phd_num %></td>
+        </tr>
+        <tr class="warning">
+          <td>硕士点</td>
+          <td><%= @school.detail.academician_num %></td>
+        </tr>
+      </tbody>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>学校位置信息</legend>
+  <table class="table table-hover">
+      <tbody>
+        <tr class="success">
+          <td>所在省份</td>
+          <td><%= @school.province_name %></td>
+        </tr>
+        <tr class="success">
+          <td>所在城市</td>
+          <td><%= @school.city_name %></td>
+        </tr>
+        <tr class="success">
+          <td>学校地址</td>
+          <td><%= @school.address %></td>
+        </tr>
+        <tr class="error">
+          <td>联系电话</td>
+          <td><%= @school.telephone %></td>
+        </tr>
+        <% if @school.latitude.present? && @school.longitude.present? %>
+          <tr class="success">
+            <td>地图位置</td>
+            <td><img src="http://maps.google.com/maps/api/staticmap?center=<%=@school.latitude%>,<%=@school.longitude%>&zoom=12&size=300x150&maptype=roadmap&markers=color:blue|label:P|<%=@school.latitude%>,<%=@school.longitude%>&sensor=false" /></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</fieldset>
+
+  <h3>学校介绍</h3>
+  <p><%= @school.full_content %></p>
+
+<% end %>
