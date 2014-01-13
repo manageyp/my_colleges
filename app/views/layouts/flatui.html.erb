@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Joy大学</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class='navbar navbar-inverse navbar-fixed-top'>
+    <div class="navbar-inner">
+      <div class='container'>
+        <a class='brand' href='/'>Joy大学</a>
+        <div class='nav-collapse'>
+          <%= render '/common/nav' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content" style='padding-top:50px;'>
+    <%= yield %>
+  </div>
+</body>
+</html>

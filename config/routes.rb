@@ -1,5 +1,7 @@
 MyColleges::Application.routes.draw do
 
+  resources :homes, only: [:index]
+
   namespace :admin do
     resources :schools
     resources :majors
@@ -7,7 +9,7 @@ MyColleges::Application.routes.draw do
     resources :score_lines
   end
 
-  root :to => 'admin/schools#index'
+  root :to => 'homes#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
