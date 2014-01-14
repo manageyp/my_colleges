@@ -13,4 +13,17 @@ module MajorsHelper
     select_tag "parent_id", options_for_select(select_choices, params[:parent_id]),{prompt: "专业分类"}
   end
 
+  def major_icon(index)
+    case index
+    when 0
+      "Chat@2x.png"
+    when 1
+      "Clipboard@2x.png"
+    when 2
+      "Map@2x.png"
+    else
+      "Watches@2x.png"
+    end
+  end
+
 end

@@ -47,7 +47,7 @@ class Major < ActiveRecord::Base
 
       paginate(conditions: conditions.join(" AND "),
                page: page,
-               per_page: 10,
+               per_page: per_page,
                order: "id").all
     end
 

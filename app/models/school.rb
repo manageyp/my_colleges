@@ -123,7 +123,7 @@ class School < ActiveRecord::Base
                conditions: conditions.join(" AND "),
                joins: joins,
                page: page,
-               per_page: 10,
+               per_page: per_page,
                order: "id").all
     end
 
@@ -146,7 +146,7 @@ class School < ActiveRecord::Base
         end
       end
     end
-    
+
     def build_ifeng_domestic(params)
       province = Province.get_by_name(params[:province_name])
       unless province
