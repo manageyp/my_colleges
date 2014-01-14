@@ -1,6 +1,16 @@
 MyColleges::Application.routes.draw do
 
-  resources :homes, only: [:index]
+  resources :homes, only: [:index] do
+    collection do
+      get 'team'
+      get 'about'
+    end
+  end
+
+  resources :schools
+  resources :majors
+  resources :school_follows
+  resources :score_lines
 
   namespace :admin do
     resources :schools

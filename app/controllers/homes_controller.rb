@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 
 class HomesController < ApplicationController
-  layout 'flatui'
 
   def index
     page = 1

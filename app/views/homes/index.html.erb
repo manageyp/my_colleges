@@ -8,7 +8,7 @@
           <img src="<%= school.school_avatar.photo_url %>" alt="Compas@2x" class="tile-image big-illustration">
           <h3 class="tile-title"><%= school.real_name %></h3>
           <p>211 985</p>
-          <a class="btn btn-primary btn-large btn-block" href="http://designmodo.com/flat">详细</a>
+          <a class="btn btn-primary btn-large btn-block" href="/schools/<%= school.id %>">详细</a>
         </div>
       </div>
     <% end %>
@@ -20,11 +20,11 @@
   <% if has_size?(@majors) %>
     <% @majors.each_with_index do |major, index| %>
       <div class="span3">
-        <div class="tile <%= "tile-hot" if index == 0 %>">
+        <div class="tile <%= "tile-hot" if index == 4 %>">
           <img src="/assets/flatui/icons/<%=major_icon(index)%>" alt="icon" class="tile-image big-illustration">
           <h3 class="tile-title"><%= major.name %></h3>
           <p><%= major.college_type %></p>
-          <a class="btn btn-primary btn-large btn-block" href="http://designmodo.com/flat">详细</a>
+          <a class="btn btn-primary btn-large btn-block" href="/majors/<%= major.id %>">详细</a>
         </div>
       </div>
     <% end %>

@@ -25,28 +25,7 @@
 
 
   <!-- header-11 -->
-  <header class="header-11 bg-midnight-blue">
-      <div class="container">
-          <div class="navbar span12">
-              <div class="navbar-inner">
-                  <button type="button" class="btn btn-navbar"> </button>
-                  <a class="brand" href="#"><img src="/assets/flatui/icons/Compas@2x.png" width="50" height="50" alt="">Joy大学</a>
-                  <div class="nav-collapse collapse pull-right">
-                      <ul class="nav">
-                          <li class="active"><a href="#">首页</a></li>
-                          <li><a href="#">高校</a></li>
-                          <li><a href="#">专业</a></li>
-                          <li><a href="#">分数</a></li>
-                          <li><a href="#">更多</a></li>
-                      </ul>
-                      <form class="navbar-form pull-left">
-                          <a class="btn btn-primary" href="#">登录</a>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </header>
+  <%= render '/common/nav' %>
 
   <div class="container">
     <%= yield %>
@@ -57,7 +36,7 @@
       <div class="container">
           <nav class="pull-left">
               <ul>
-                  <li class="active"><a href="#">团队</a></li>
+                  <li class="active"><a href="/homes/team">团队</a></li>
                   <li><a href="#">招聘</a></li>
                   <li><a href="#">关于</a></li>
               </ul>

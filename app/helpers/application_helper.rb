@@ -54,4 +54,10 @@ module ApplicationHelper
     params[:q][field.to_sym].present?
   end
 
+  def active_nav(str)
+    if params[:controller] == str
+      "active"
+    end
+  end
+
 end
