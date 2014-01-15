@@ -2090,23 +2090,23 @@ textarea[class*="span"] {
   background-color: #1abc9c;
   color: #ffffff;
 }
-.pagination ul li.active.previous > a,
+.pagination ul li.active.prev > a,
 .pagination ul li.active.next > a,
-.pagination ul li.active.previous > span,
+.pagination ul li.active.prev > span,
 .pagination ul li.active.next > span {
   margin: 0;
 }
-.pagination ul li.active.previous > a,
+.pagination ul li.active.prev > a,
 .pagination ul li.active.next > a,
-.pagination ul li.active.previous > span,
+.pagination ul li.active.prev > span,
 .pagination ul li.active.next > span,
-.pagination ul li.active.previous > a:hover,
+.pagination ul li.active.prev > a:hover,
 .pagination ul li.active.next > a:hover,
-.pagination ul li.active.previous > span:hover,
+.pagination ul li.active.prev > span:hover,
 .pagination ul li.active.next > span:hover,
-.pagination ul li.active.previous > a:focus,
+.pagination ul li.active.prev > a:focus,
 .pagination ul li.active.next > a:focus,
-.pagination ul li.active.previous > span:focus,
+.pagination ul li.active.prev > span:focus,
 .pagination ul li.active.next > span:focus {
   background-color: #1abc9c;
   color: #ffffff;
@@ -2122,8 +2122,8 @@ textarea[class*="span"] {
   -moz-border-radius: 6px 0 0 6px;
   border-radius: 6px 0 0 6px;
 }
-.pagination ul li:first-child.previous + li > a,
-.pagination ul li:first-child.previous + li > span {
+.pagination ul li:first-child.prev + li > a,
+.pagination ul li:first-child.prev + li > span {
   border-left-width: 5px;
 }
 .pagination ul li:first-child > a,
@@ -2146,9 +2146,9 @@ textarea[class*="span"] {
   -moz-border-radius: 0 6px 6px 0;
   border-radius: 0 6px 6px 0;
 }
-.pagination ul li.previous > a,
+.pagination ul li.prev > a,
 .pagination ul li.next > a,
-.pagination ul li.previous > span,
+.pagination ul li.prev > span,
 .pagination ul li.next > span {
   background: transparent;
   border: none;
@@ -2166,17 +2166,17 @@ textarea[class*="span"] {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
-.pagination ul li.previous > a,
+.pagination ul li.prev > a,
 .pagination ul li.next > a,
-.pagination ul li.previous > span,
+.pagination ul li.prev > span,
 .pagination ul li.next > span,
-.pagination ul li.previous > a:hover,
+.pagination ul li.prev > a:hover,
 .pagination ul li.next > a:hover,
-.pagination ul li.previous > span:hover,
+.pagination ul li.prev > span:hover,
 .pagination ul li.next > span:hover,
-.pagination ul li.previous > a:focus,
+.pagination ul li.prev > a:focus,
 .pagination ul li.next > a:focus,
-.pagination ul li.previous > span:focus,
+.pagination ul li.prev > span:focus,
 .pagination ul li.next > span:focus {
   border-color: #e4e7ea !important;
 }
@@ -2211,11 +2211,11 @@ textarea[class*="span"] {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.pagination ul li.active.previous,
+.pagination ul li.active.prev,
 .pagination ul li.active.next {
   border-color: #e4e7ea;
 }
-.pagination ul li.active.previous {
+.pagination ul li.active.prev {
   margin-right: 6px;
 }
 .pagination ul li > a,
@@ -2258,14 +2258,14 @@ textarea[class*="span"] {
   border-color: #16a085;
   color: #ffffff;
 }
-.pagination > .btn.previous,
+.pagination > .btn.prev,
 .pagination > .btn.next {
   margin-right: 8px;
   font-size: 14px;
   padding-left: 23px;
   padding-right: 23px;
 }
-.pagination > .btn.previous [class*="fui-"],
+.pagination > .btn.prev [class*="fui-"],
 .pagination > .btn.next [class*="fui-"] {
   font-size: 16px;
   margin-left: -2px;
