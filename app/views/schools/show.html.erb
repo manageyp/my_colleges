@@ -1,11 +1,6 @@
-<h2>学校详细信息</h2>
-<p>
-<%= link_to "返回", schools_path, class: 'btn' %>
-</p>
-
 <% if @school.present? %>
 <fieldset>
-    <legend>学校基本信息</legend>
+    <legend>基本信息</legend>
     <%= render :partial => "/common/school_follow_panel", :locals => { :school => @school } %>
     <table class="table table-hover">
       <tbody>
@@ -76,7 +71,7 @@
 </fieldset>
 
 <fieldset>
-    <legend>学校位置信息</legend>
+    <legend>地理位置</legend>
   <table class="table table-hover">
       <tbody>
         <tr class="success">
@@ -105,7 +100,10 @@
   </table>
 </fieldset>
 
-  <h3>学校介绍</h3>
-  <p><%= @school.full_content %></p>
+
+<fieldset>
+    <legend>文字介绍</legend>
+    <p><%= @school.full_content %></p>
+</fieldset>
 
 <% end %>

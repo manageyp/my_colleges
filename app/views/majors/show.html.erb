@@ -1,11 +1,6 @@
-<h2>专业详细信息</h2>
-<p>
-<%= link_to "返回", majors_path, class: 'btn' %>
-</p>
-
 <% if @major.present? %>
 <fieldset>
-  <legend>专业基本信息</legend>
+  <legend>基本信息</legend>
   <table class="table table-hover">
     <tbody>
       <tr class="success">
@@ -28,13 +23,16 @@
   </table>
 </fieldset>
 
-  <h3>专业介绍</h3>
-  <p>
+
+<fieldset>
+    <legend>文字介绍</legend>
+    <p>
     <% if @major.major_introduction %>
       <%= @major.major_introduction.content %>
     <% else %>
       无
-    <% end %>
-  </p>
+    <% end %></p>
+</fieldset>
+
 
 <% end %>
