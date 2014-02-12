@@ -47,7 +47,7 @@ class ScoreLine < ActiveRecord::Base
       paginate(conditions: conditions.join(" AND "),
                page: page,
                per_page: 10,
-               order: "id").all
+               order: "province_id,syear desc").all
     end
 
   end
