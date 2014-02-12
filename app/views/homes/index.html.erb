@@ -21,7 +21,6 @@
         <div class="tile <%= "tile-hot" if index == 4 %>">
           <a href="/majors/<%= major.id %>"><img src="/assets/flatui/icons/<%=major_icon(index)%>" alt="icon" class="tile-image big-illustration"></a>
           <h3 class="tile-title"><%= major.name %></h3>
-          <p><%= major.college_type %></p>
         </div>
       </div>
     <% end %>
