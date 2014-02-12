@@ -1233,6 +1233,7 @@ input[type="color"],
   -o-transition: border .25s linear, color .25s linear;
   transition: border .25s linear, color .25s linear;
   -webkit-backface-visibility: hidden;
+  margin: 0;
 }
 textarea:-moz-placeholder,
 input[type="text"]:-moz-placeholder,
@@ -1647,7 +1648,7 @@ textarea[readonly] {
 input,
 textarea,
 .uneditable-input {
-  width: 192px;
+  width: 205px;
 }
 textarea {
   height: auto;

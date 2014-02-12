@@ -1,7 +1,5 @@
 <br/>
 <%= form_tag('/majors', :method => :get) do %>
-  <p><%= text_field_tag :keyword, params[:keyword], placeholder: "输入专业名称" %></p>
-  <p><%= college_type_filters %></p>
-  <p><%= parent_major_filters %></p>
-  <%= submit_tag '搜索', class: :btn %>
+  <p><%= college_type_filters %>&nbsp;&nbsp;<%= parent_major_filters %></p>
+  <p><%= text_field_tag :keyword, params[:keyword], placeholder: "输入专业名称" %>&nbsp;&nbsp;<%= submit_tag '搜索', class: :btn %></p>
 <% end %>
