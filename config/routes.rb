@@ -2,7 +2,6 @@ MyColleges::Application.routes.draw do
 
   resources :homes, only: [:index] do
     collection do
-      get 'team'
       get 'about'
     end
   end

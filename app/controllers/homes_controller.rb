@@ -11,4 +11,7 @@ class HomesController < ApplicationController
     major_options = { college_type: '本科' }
     @majors = Major.paginate_majors(major_options, page, hot_count)
   end
+
+  def about
+  end
 end

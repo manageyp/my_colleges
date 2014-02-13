@@ -3442,14 +3442,16 @@ body.vjs-full-window {
   background: url(/assets/flatui/login/imac.png) 0 0 no-repeat;
   background-size: 940px 778px;
   color: #ffffff;
+  margin-top: 46px;
   margin-bottom: 77px;
   padding: 38px 38px 267px;
   position: relative;
+  width: 864px;
 }
 .login-screen {
   background-color: #1abc9c;
   min-height: 317px;
-  padding: 123px 199px 33px 306px;
+  padding: 123px 199px 33px 199px;
 }
 .login-icon {
   left: 200px;
