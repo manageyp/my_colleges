@@ -55,8 +55,15 @@ module ApplicationHelper
   end
 
   def active_nav(str)
-    if params[:controller] == str
+    puts params.inspect
+    puts str.inspect
+    if params[:action] == 'about' &&
+       str == 'about'
       "active"
+    elsif params[:action] != 'about'
+      if params[:controller] == str
+        "active"
+      end
     end
   end
 
