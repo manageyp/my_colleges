@@ -6,7 +6,7 @@
 /* 24px */
 
 .demo-tiles {
-  margin-bottom: 46px;
+  margin-bottom: 26px;
   margin-top: 46px;
 }
 .inline-block {
@@ -1377,4 +1377,8 @@ section * {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   margin-bottom: 55px;
+}
+.home-page-title {
+  width: 20%;
+  padding: 10px;
 }

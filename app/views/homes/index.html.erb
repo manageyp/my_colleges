@@ -1,5 +1,9 @@
-<br/>
-<h3>热门高校</h3>
+<div class="home-page-title">
+  <div class="tooltip fade top in">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-inner">热门大学</div>
+  </div>
+</div>
 <div class="row demo-tiles">
   <% if has_size?(@schools) %>
     <% @schools.each_with_index do |school, index| %>
@@ -13,7 +17,12 @@
   <% end %>
 </div>
 
-<h3>热门专业</h3>
+<div class="home-page-title">
+  <div class="tooltip fade top in">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-inner">热门专业</div>
+  </div>
+</div>
 <div class="row demo-tiles">
   <% if has_size?(@majors) %>
     <% @majors.each_with_index do |major, index| %>

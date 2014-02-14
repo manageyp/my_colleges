@@ -2293,7 +2293,7 @@ textarea[class*="span"] {
   border-top-color: #34495e;
   border-width: 9px 9px 0;
   bottom: 0;
-  margin-left: -9px;
+  margin-left: -99px;
 }
 .tooltip.right .tooltip-arrow {
   border-right-color: #34495e;
