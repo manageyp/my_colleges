@@ -611,8 +611,16 @@ section * {
 .container {
   position: relative;
   z-index: 2;
-  width: 970px !important;
 }
+
+.body-container {
+  position: relative;
+  z-index: 2;
+  width: 970px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media (max-width: 767px) {
   header {
     padding-left: 20px;
